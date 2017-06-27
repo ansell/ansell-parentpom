@@ -165,7 +165,7 @@
 					<version>1.4.1</version>
 					<executions>
 						<execution>
-							<id>enforce-maven-3</id>
+							<id>enforce-maven-versioning</id>
 							<goals>
 								<goal>enforce</goal>
 							</goals>
@@ -177,13 +177,6 @@
 									<requireJavaVersion>
 										<version>[${jdkLevel},)</version>
 									</requireJavaVersion>
-									<requirePluginVersions>
-										<message>Best Practice is to always define plugin versions!</message>
-									</requirePluginVersions>
-									<requireReleaseDeps>
-										<message>No Snapshot dependencies allowed!</message>
-										<onlyWhenRelease>true</onlyWhenRelease>
-									</requireReleaseDeps>
 								</rules>
 							</configuration>
 						</execution>
@@ -240,19 +233,19 @@
 					<artifactId>maven-site-plugin</artifactId>
 					<version>3.5.1</version>
 				</plugin>
-                                <plugin>
-                                        <groupId>org.codehaus.mojo</groupId>
-                                        <artifactId>license-maven-plugin</artifactId>
-                                        <version>1.13</version>
-                                        <executions>
-                                                <execution>
-                                                        <id>download-licenses</id>
-                                                        <goals>
-                                                                <goal>download-licenses</goal>
-                                                        </goals>
-                                                </execution>
-                                        </executions>
-                                </plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>license-maven-plugin</artifactId>
+					<version>1.13</version>
+					<executions>
+						<execution>
+							<id>download-licenses</id>
+							<goals>
+								<goal>download-licenses</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
@@ -341,6 +334,50 @@
 			<id>sonatype-oss-release</id>
 			<build>
 				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-enforcer-plugin</artifactId>
+						<version>1.4.1</version>
+						<executions>
+							<execution>
+								<id>enforce-no-snapshots</id>
+								<goals>
+									<goal>enforce</goal>
+								</goals>
+								<configuration>
+									<rules>
+										<requirePluginVersions>
+											<message>Best Practice is to always define plugin versions!</message>
+										</requirePluginVersions>
+										<requireReleaseDeps>
+											<message>No Snapshot dependencies allowed!</message>
+										</requireReleaseDeps>
+									</rules>
+								</configuration>
+							</execution>
+							<execution>
+								<id>enforce-bytecode-version</id>
+								<goals>
+									<goal>enforce</goal>
+								</goals>
+								<configuration>
+									<rules>
+										<enforceBytecodeVersion>
+											<maxJdkVersion>${jdkLevel}</maxJdkVersion>
+										</enforceBytecodeVersion>
+									</rules>
+									<fail>true</fail>
+								</configuration>
+							</execution>
+						</executions>
+						<dependencies>
+							<dependency>
+								<groupId>org.codehaus.mojo</groupId>
+								<artifactId>extra-enforcer-rules</artifactId>
+								<version>1.0-beta-6</version>
+							</dependency>
+						</dependencies>
+					</plugin>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-source-plugin</artifactId>

@@ -235,6 +235,19 @@
 					<artifactId>maven-site-plugin</artifactId>
 					<version>3.5.1</version>
 				</plugin>
+                                <plugin>
+                                        <groupId>org.codehaus.mojo</groupId>
+                                        <artifactId>license-maven-plugin</artifactId>
+                                        <version>1.13</version>
+                                        <executions>
+                                                <execution>
+                                                        <id>download-licenses</id>
+                                                        <goals>
+                                                                <goal>download-licenses</goal>
+                                                        </goals>
+                                                </execution>
+                                        </executions>
+                                </plugin>
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->
 				<plugin>

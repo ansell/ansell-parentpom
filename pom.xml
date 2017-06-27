@@ -174,6 +174,7 @@
 									</requireJavaVersion>
 									<requirePluginVersions>
 										<message>Best Practice is to always define plugin versions!</message>
+										<banSnapshots>false</banSnapshots>
 									</requirePluginVersions>
 									<requireReleaseDeps>
 										<message>No Snapshot dependencies allowed!</message>
@@ -254,20 +255,30 @@
 					<version>1.5</version>
 					<executions>
 						<execution>
-							<id>generate-artifact-checksums</id>
+							<id>generate-pom-checksum</id>
 							<goals>
-								<goal>artifacts</goal>
+								<goal>files</goal>
 							</goals>
+							<configuration>
+								<attachChecksums>true</attachChecksums>
+								<csvSummary>false</csvSummary>
+								<algorithms>
+									<algorithm>MD5</algorithm>
+									<algorithm>SHA-1</algorithm>
+									<algorithm>SHA-256</algorithm>
+									<algorithm>SHA-512</algorithm>
+								</algorithms>
+								<fileSets>
+									<fileSet>
+										<directory>.</directory>
+										<includes>
+											<include>pom.xml</include>
+										</includes>
+									</fileSet>
+								</fileSets>
+							</configuration>
 						</execution>
 					</executions>
-					<configuration>
-						<algorithms>
-							<algorithm>MD5</algorithm>
-							<algorithm>SHA-1</algorithm>
-							<algorithm>SHA-256</algorithm>
-							<algorithm>SHA-512</algorithm>
-						</algorithms>
-					</configuration>
 				</plugin>
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->

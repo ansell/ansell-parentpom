@@ -184,6 +184,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
+					<!-- TODO: Upgrade old version of surefire when compatible with JUnit-5 -->
 					<version>2.19.1</version>
 					<configuration>
 						<runOrder>random</runOrder>
@@ -213,6 +214,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-failsafe-plugin</artifactId>
+					<!-- TODO: Upgrade old version of surefire when compatible with JUnit-5 -->
 					<version>2.19.1</version>
 					<configuration>
 						<runOrder>random</runOrder>

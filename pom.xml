@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.ansell</groupId>
 	<artifactId>parentpom</artifactId>
-	<version>5-SNAPSHOT</version>
+	<version>5</version>
 	<name>Maven Parent POM</name>
 	<description>Maven Parent POM</description>
 	<packaging>pom</packaging>
@@ -48,9 +48,9 @@
 		<!-- JUnit-5 versions, to keep them consistent with one another and use 
 			them for surefire configuration -->
 		<junit.version>4.12</junit.version>
-		<junit.jupiter.version>5.0.1</junit.jupiter.version>
-		<junit.vintage.version>${junit.version}.1</junit.vintage.version>
-		<junit.platform.version>1.0.1</junit.platform.version>
+		<junit.jupiter.version>5.0.3</junit.jupiter.version>
+		<junit.vintage.version>${junit.version}.3</junit.vintage.version>
+		<junit.platform.version>1.0.3</junit.platform.version>
 	</properties>
 
 	<dependencyManagement>
@@ -124,7 +124,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-javadoc-plugin</artifactId>
-					<version>3.0.0-M1</version>
+					<version>3.0.0</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -177,7 +177,7 @@
 				<plugin>
 					<groupId>org.jacoco</groupId>
 					<artifactId>jacoco-maven-plugin</artifactId>
-					<version>0.7.9</version>
+					<version>0.8.0</version>
 					<executions>
 						<execution>
 							<id>prepare-agent</id>
@@ -190,7 +190,9 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
-					<!-- TODO: Upgrade old version of surefire when compatible with JUnit-5 -->
+					<!-- TODO: Upgrade old version of surefire when compatible with JUnit-5 
+						https://github.com/junit-team/junit5/issues/809
+					-->
 					<version>2.19.1</version>
 					<configuration>
 						<runOrder>random</runOrder>
@@ -220,7 +222,9 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-failsafe-plugin</artifactId>
-					<!-- TODO: Upgrade old version of surefire when compatible with JUnit-5 -->
+					<!-- TODO: Upgrade old version of surefire when compatible with JUnit-5 
+						https://github.com/junit-team/junit5/issues/809
+					-->
 					<version>2.19.1</version>
 					<configuration>
 						<runOrder>random</runOrder>
@@ -367,7 +371,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-site-plugin</artifactId>
-					<version>3.6</version>
+					<version>3.7</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -512,6 +516,10 @@
 									<rules>
 										<enforceBytecodeVersion>
 											<maxJdkVersion>${jdkLevel}</maxJdkVersion>
+											<ignoreClasses>
+												<!-- ignore JEP238 Multi-Release JAR classes -->
+												<ignoreClass>META-INF/versions/**/*</ignoreClass>
+											</ignoreClasses>
 										</enforceBytecodeVersion>
 									</rules>
 									<fail>true</fail>

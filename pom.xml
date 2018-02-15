@@ -49,7 +49,7 @@
 			them for surefire configuration -->
 		<junit.version>4.12</junit.version>
 		<junit.jupiter.version>5.0.3</junit.jupiter.version>
-		<junit.vintage.version>${junit.version}.3</junit.vintage.version>
+		<junit.vintage.version>4.12.3</junit.vintage.version>
 		<junit.platform.version>1.0.3</junit.platform.version>
 	</properties>
 
@@ -314,6 +314,12 @@
 								<rules>
 									<enforceBytecodeVersion>
 										<maxJdkVersion>${jdkLevel}</maxJdkVersion>
+                                                                                <ignoreClasses>
+                                                                                        <!-- ignore multirelease JAR classes -->
+                                                                                        <ignoreClass>META-INF/versions/**/*</ignoreClass>
+                                                                                        <!-- ignore JAVA 9 module-info files, for eg org.ow2.asm:asm:6.0+ -->
+                                                                                        <ignoreClass>module-info</ignoreClass>
+                                                                                </ignoreClasses>
 									</enforceBytecodeVersion>
 								</rules>
 								<fail>true</fail>
@@ -508,6 +514,7 @@
 										</requirePluginVersions>
 										<requireReleaseDeps>
 											<message>No Snapshot dependencies allowed!</message>
+											<onlyWhenRelease>true</onlyWhenRelease>
 										</requireReleaseDeps>
 									</rules>
 								</configuration>

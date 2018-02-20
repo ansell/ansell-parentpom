@@ -48,9 +48,9 @@
 		<!-- JUnit-5 versions, to keep them consistent with one another and use 
 			them for surefire configuration -->
 		<junit.version>4.12</junit.version>
-		<junit.jupiter.version>5.0.3</junit.jupiter.version>
-		<junit.vintage.version>4.12.3</junit.vintage.version>
-		<junit.platform.version>1.0.3</junit.platform.version>
+		<junit.jupiter.version>5.1.0</junit.jupiter.version>
+		<junit.vintage.version>5.1.0</junit.vintage.version>
+		<junit.platform.version>1.1.0</junit.platform.version>
 	</properties>
 
 	<dependencyManagement>
@@ -330,7 +330,7 @@
 						<dependency>
 							<groupId>org.codehaus.mojo</groupId>
 							<artifactId>extra-enforcer-rules</artifactId>
-							<version>1.0-beta-6</version>
+							<version>1.0-beta-7</version>
 						</dependency>
 					</dependencies>
 				</plugin>
@@ -531,6 +531,8 @@
 											<ignoreClasses>
 												<!-- ignore JEP238 Multi-Release JAR classes -->
 												<ignoreClass>META-INF/versions/**/*</ignoreClass>
+												<!-- ignore JAVA 9 module-info files, for eg org.ow2.asm:asm:6.0+ -->
+ 												<ignoreClass>module-info</ignoreClass>
 											</ignoreClasses>
 										</enforceBytecodeVersion>
 									</rules>
@@ -542,7 +544,7 @@
 							<dependency>
 								<groupId>org.codehaus.mojo</groupId>
 								<artifactId>extra-enforcer-rules</artifactId>
-								<version>1.0-beta-6</version>
+								<version>1.0-beta-7</version>
 							</dependency>
 						</dependencies>
 					</plugin>

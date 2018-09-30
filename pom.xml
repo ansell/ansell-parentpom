@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.ansell</groupId>
 	<artifactId>parentpom</artifactId>
-	<version>10-SNAPSHOT</version>
+	<version>10</version>
 	<name>Maven Parent POM</name>
 	<description>Maven Parent POM</description>
 	<packaging>pom</packaging>

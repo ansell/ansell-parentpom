@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
@@ -306,12 +307,12 @@
 								<rules>
 									<enforceBytecodeVersion>
 										<maxJdkVersion>${jdkLevel}</maxJdkVersion>
-                                                                                <ignoreClasses>
-                                                                                        <!-- ignore multirelease JAR classes -->
-                                                                                        <ignoreClass>META-INF/versions/**/*</ignoreClass>
-                                                                                        <!-- ignore JAVA 9 module-info files, for eg org.ow2.asm:asm:6.0+ -->
-                                                                                        <ignoreClass>module-info</ignoreClass>
-                                                                                </ignoreClasses>
+										<ignoreClasses>
+											<!-- ignore multirelease JAR classes -->
+											<ignoreClass>META-INF/versions/**/*</ignoreClass>
+											<!-- ignore JAVA 9 module-info files, for eg org.ow2.asm:asm:6.0+ -->
+											<ignoreClass>module-info</ignoreClass>
+										</ignoreClasses>
 									</enforceBytecodeVersion>
 								</rules>
 								<fail>true</fail>
@@ -325,6 +326,26 @@
 							<version>1.0-beta-9</version>
 						</dependency>
 					</dependencies>
+				</plugin>
+				<plugin>
+					<groupId>org.moditect</groupId>
+					<artifactId>moditect-maven-plugin</artifactId>
+					<version>1.0.0.Beta2</version>
+					<executions>
+						<execution>
+							<id>add-module-infos</id>
+							<phase>package</phase>
+							<goals>
+								<goal>add-module-info</goal>
+							</goals>
+							<configuration>
+								<overwriteExistingFiles>true</overwriteExistingFiles>
+								<module>
+									<moduleInfoFile>src/moditect/module-info.java</moduleInfoFile>
+								</module>
+							</configuration>
+						</execution>
+					</executions>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -528,7 +549,7 @@
 												<!-- ignore JEP238 Multi-Release JAR classes -->
 												<ignoreClass>META-INF/versions/**/*</ignoreClass>
 												<!-- ignore JAVA 9 module-info files, for eg org.ow2.asm:asm:6.0+ -->
- 												<ignoreClass>module-info</ignoreClass>
+												<ignoreClass>module-info</ignoreClass>
 											</ignoreClasses>
 										</enforceBytecodeVersion>
 									</rules>

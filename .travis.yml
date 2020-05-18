@@ -10,6 +10,8 @@ jobs:
         - sed -i "s/JDK_VERSION/8/g" "~/.m2/toolchains.xml"
         - cat "~/.m2/toolchains.xml"
       install:
+        - ls -lah "${JAVA_HOME}"
+        - ls -lah "/home/travis/openjdk8"
         - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V -DjdkLevel=8
       script:
         - mvn test -B -DjdkLevel=8
@@ -23,6 +25,8 @@ jobs:
         - sed -i "s/JDK_VERSION/11/g" "~/.m2/toolchains.xml"
         - cat "~/.m2/toolchains.xml"
       install:
+        - ls -lah "${JAVA_HOME}"
+        - ls -lah "/home/travis/openjdk11"
         - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V -DjdkLevel=11
       script:
         - mvn test -B -DjdkLevel=11
@@ -36,6 +40,8 @@ jobs:
         - sed -i "s/JDK_VERSION/14/g" "~/.m2/toolchains.xml"
         - cat "~/.m2/toolchains.xml"
       install:
+        - ls -lah "${JAVA_HOME}"
+        - ls -lah "/home/travis/openjdk14"
         - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V -DjdkLevel=14
       script:
         - mvn test -B -DjdkLevel=14

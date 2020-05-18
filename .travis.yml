@@ -1,3 +1,5 @@
+before_install:
+  - cp toolchains.xml.example ~/.m2/toolchains.xml
 jobs:
   include:
     - language: java

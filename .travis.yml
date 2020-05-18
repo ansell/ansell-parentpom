@@ -23,7 +23,7 @@ jobs:
         - ls -lah "${HOME}/.m2"
         - sed -i "s|JAVA_HOME|${JAVA_HOME}|g" "${HOME}/.m2/toolchains.xml"
         - sed -i "s/JDK_VENDOR/openjdk/g" "${HOME}/.m2/toolchains.xml"
-        - sed -i "s/JDK_VERSION/8/g" "${HOME}/.m2/toolchains.xml"
+        - sed -i "s/JDK_VERSION/11/g" "${HOME}/.m2/toolchains.xml"
         - cat "${HOME}/.m2/toolchains.xml"
       install:
         - ls -lah "${JAVA_HOME}"
@@ -38,7 +38,7 @@ jobs:
         - ls -lah "${HOME}/.m2"
         - sed -i "s|JAVA_HOME|${JAVA_HOME}|g" "${HOME}/.m2/toolchains.xml"
         - sed -i "s/JDK_VENDOR/openjdk/g" "${HOME}/.m2/toolchains.xml"
-        - sed -i "s/JDK_VERSION/8/g" "${HOME}/.m2/toolchains.xml"
+        - sed -i "s/JDK_VERSION/14/g" "${HOME}/.m2/toolchains.xml"
         - cat "${HOME}/.m2/toolchains.xml"
       install:
         - ls -lah "${JAVA_HOME}"

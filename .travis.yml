@@ -3,13 +3,13 @@ jobs:
     - language: java
       jdk: openjdk8
       before_install:
-        - mkdir -p "${TRAVIS_BUILD_DIR}/.m2/"
-        - cp "toolchains.xml.template" "${TRAVIS_BUILD_DIR}/.m2/toolchains.xml"
-        - ls -lah "${TRAVIS_BUILD_DIR}/.m2"
-        - sed -i "s|JAVA_HOME|${JAVA_HOME}|g" "${TRAVIS_BUILD_DIR}/.m2/toolchains.xml"
-        - sed -i "s/JDK_VENDOR/openjdk/g" "${TRAVIS_BUILD_DIR}/.m2/toolchains.xml"
-        - sed -i "s/JDK_VERSION/8/g" "${TRAVIS_BUILD_DIR}/.m2/toolchains.xml"
-        - cat "${TRAVIS_BUILD_DIR}/.m2/toolchains.xml"
+        - mkdir -p "${HOME}/.m2/"
+        - cp "toolchains.xml.template" "${HOME}/.m2/toolchains.xml"
+        - ls -lah "${HOME}/.m2"
+        - sed -i "s|JAVA_HOME|${JAVA_HOME}|g" "${HOME}/.m2/toolchains.xml"
+        - sed -i "s/JDK_VENDOR/openjdk/g" "${HOME}/.m2/toolchains.xml"
+        - sed -i "s/JDK_VERSION/8/g" "${HOME}/.m2/toolchains.xml"
+        - cat "${HOME}/.m2/toolchains.xml"
       install:
         - ls -lah "${JAVA_HOME}"
         - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V -DjdkLevel=8
@@ -18,13 +18,13 @@ jobs:
     - language: java
       jdk: openjdk11
       before_install:
-        - mkdir -p "${TRAVIS_BUILD_DIR}/.m2/"
-        - cp "toolchains.xml.template" "${TRAVIS_BUILD_DIR}/.m2/toolchains.xml"
-        - ls -lah "${TRAVIS_BUILD_DIR}/.m2"
-        - sed -i "s|JAVA_HOME|${JAVA_HOME}|g" "${TRAVIS_BUILD_DIR}/.m2/toolchains.xml"
-        - sed -i "s/JDK_VENDOR/openjdk/g" "${TRAVIS_BUILD_DIR}/.m2/toolchains.xml"
-        - sed -i "s/JDK_VERSION/8/g" "${TRAVIS_BUILD_DIR}/.m2/toolchains.xml"
-        - cat "${TRAVIS_BUILD_DIR}/.m2/toolchains.xml"
+        - mkdir -p "${HOME}/.m2/"
+        - cp "toolchains.xml.template" "${HOME}/.m2/toolchains.xml"
+        - ls -lah "${HOME}/.m2"
+        - sed -i "s|JAVA_HOME|${JAVA_HOME}|g" "${HOME}/.m2/toolchains.xml"
+        - sed -i "s/JDK_VENDOR/openjdk/g" "${HOME}/.m2/toolchains.xml"
+        - sed -i "s/JDK_VERSION/8/g" "${HOME}/.m2/toolchains.xml"
+        - cat "${HOME}/.m2/toolchains.xml"
       install:
         - ls -lah "${JAVA_HOME}"
         - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V -DjdkLevel=11
@@ -33,13 +33,13 @@ jobs:
     - language: java
       jdk: openjdk14
       before_install:
-        - mkdir -p "${TRAVIS_BUILD_DIR}/.m2/"
-        - cp "toolchains.xml.template" "${TRAVIS_BUILD_DIR}/.m2/toolchains.xml"
-        - ls -lah "${TRAVIS_BUILD_DIR}/.m2"
-        - sed -i "s|JAVA_HOME|${JAVA_HOME}|g" "${TRAVIS_BUILD_DIR}/.m2/toolchains.xml"
-        - sed -i "s/JDK_VENDOR/openjdk/g" "${TRAVIS_BUILD_DIR}/.m2/toolchains.xml"
-        - sed -i "s/JDK_VERSION/8/g" "${TRAVIS_BUILD_DIR}/.m2/toolchains.xml"
-        - cat "${TRAVIS_BUILD_DIR}/.m2/toolchains.xml"
+        - mkdir -p "${HOME}/.m2/"
+        - cp "toolchains.xml.template" "${HOME}/.m2/toolchains.xml"
+        - ls -lah "${HOME}/.m2"
+        - sed -i "s|JAVA_HOME|${JAVA_HOME}|g" "${HOME}/.m2/toolchains.xml"
+        - sed -i "s/JDK_VENDOR/openjdk/g" "${HOME}/.m2/toolchains.xml"
+        - sed -i "s/JDK_VERSION/8/g" "${HOME}/.m2/toolchains.xml"
+        - cat "${HOME}/.m2/toolchains.xml"
       install:
         - ls -lah "${JAVA_HOME}"
         - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V -DjdkLevel=14

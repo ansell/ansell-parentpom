@@ -5,24 +5,24 @@ jobs:
     - language: java
       jdk: openjdk8
       install:
-        - sed -i ".bak" "s/JDK_VENDOR/openjdk/g" "~/.m2/toolchains.xml"
-        - sed -i ".bak" "s/JDK_VERSION/8/g" "~/.m2/toolchains.xml"
+        - sed -i "s/JDK_VENDOR/openjdk/g" "~/.m2/toolchains.xml"
+        - sed -i "s/JDK_VERSION/8/g" "~/.m2/toolchains.xml"
         - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V -DjdkLevel=8
       script:
         - mvn test -B -DjdkLevel=8
     - language: java
       jdk: openjdk11
       install:
-        - sed -i ".bak" "s/JDK_VENDOR/openjdk/g" "~/.m2/toolchains.xml"
-        - sed -i ".bak" "s/JDK_VERSION/11/g" "~/.m2/toolchains.xml"
+        - sed -i "s/JDK_VENDOR/openjdk/g" "~/.m2/toolchains.xml"
+        - sed -i "s/JDK_VERSION/11/g" "~/.m2/toolchains.xml"
         - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V -DjdkLevel=11
       script:
         - mvn test -B -DjdkLevel=11
     - language: java
       jdk: openjdk14
       install:
-        - sed -i ".bak" "s/JDK_VENDOR/openjdk/g" "~/.m2/toolchains.xml"
-        - sed -i ".bak" "s/JDK_VERSION/14/g" "~/.m2/toolchains.xml"
+        - sed -i "s/JDK_VENDOR/openjdk/g" "~/.m2/toolchains.xml"
+        - sed -i "s/JDK_VERSION/14/g" "~/.m2/toolchains.xml"
         - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V -DjdkLevel=14
       script:
         - mvn test -B -DjdkLevel=14

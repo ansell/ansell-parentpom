@@ -4,7 +4,8 @@ jobs:
       jdk: openjdk8
       before_install:
         - mkdir -p "~/.m2/"
-        - cp toolchains.xml.template ~/.m2/toolchains.xml
+        - cp "toolchains.xml.template" "~/.m2/toolchains.xml"
+        - ls -lah "~/.m2"
         - sed -i "s/JDK_VENDOR/openjdk/g" "~/.m2/toolchains.xml"
         - sed -i "s/JDK_VERSION/8/g" "~/.m2/toolchains.xml"
       install:
@@ -16,6 +17,7 @@ jobs:
       before_install:
         - mkdir -p "~/.m2/"
         - cp toolchains.xml.template ~/.m2/toolchains.xml
+        - ls -lah "~/.m2"
         - sed -i "s/JDK_VENDOR/openjdk/g" "~/.m2/toolchains.xml"
         - sed -i "s/JDK_VERSION/11/g" "~/.m2/toolchains.xml"
       install:
@@ -27,6 +29,7 @@ jobs:
       before_install:
         - mkdir -p "~/.m2/"
         - cp toolchains.xml.template ~/.m2/toolchains.xml
+        - ls -lah "~/.m2"
         - sed -i "s/JDK_VENDOR/openjdk/g" "~/.m2/toolchains.xml"
         - sed -i "s/JDK_VERSION/14/g" "~/.m2/toolchains.xml"
       install:

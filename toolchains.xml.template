@@ -8,7 +8,7 @@
           <vendor>JDK_VENDOR</vendor>
         </provides>
         <configuration>
-          <jdkHome>/home/travis/JDK_VENDORJDK_VERSION</jdkHome>
+          <jdkHome>JAVA_HOME</jdkHome>
         </configuration>
       </toolchain>
 </toolchains>

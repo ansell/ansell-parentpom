@@ -8,6 +8,7 @@ jobs:
         - ls -lah "~/.m2"
         - sed -i "s/JDK_VENDOR/openjdk/g" "~/.m2/toolchains.xml"
         - sed -i "s/JDK_VERSION/8/g" "~/.m2/toolchains.xml"
+        - cat "~/.m2/toolchains.xml"
       install:
         - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V -DjdkLevel=8
       script:
@@ -20,6 +21,7 @@ jobs:
         - ls -lah "~/.m2"
         - sed -i "s/JDK_VENDOR/openjdk/g" "~/.m2/toolchains.xml"
         - sed -i "s/JDK_VERSION/11/g" "~/.m2/toolchains.xml"
+        - cat "~/.m2/toolchains.xml"
       install:
         - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V -DjdkLevel=11
       script:
@@ -32,6 +34,7 @@ jobs:
         - ls -lah "~/.m2"
         - sed -i "s/JDK_VENDOR/openjdk/g" "~/.m2/toolchains.xml"
         - sed -i "s/JDK_VERSION/14/g" "~/.m2/toolchains.xml"
+        - cat "~/.m2/toolchains.xml"
       install:
         - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V -DjdkLevel=14
       script:

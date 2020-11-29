@@ -43,14 +43,54 @@
 		<minimumMavenVersion>3.2.2</minimumMavenVersion>
 
 		<jdkLevel>1.8</jdkLevel>
+
+		<animal-sniffer-maven-plugin.version>1.18</animal-sniffer-maven-plugin.version>
 		<animal-sniffer-signature.artifact>java18</animal-sniffer-signature.artifact>
 		<animal-sniffer-signature.version>1.0</animal-sniffer-signature.version>
 
+		<appassembler-maven-plugin.version>2.1.0</appassembler-maven-plugin.version>
+
+		<coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
+
 		<!-- JUnit-5 versions, to keep them consistent with one another and use 
 			them for surefire configuration -->
+		<apiguardian.version>1.1.0</apiguardian.version>
 		<junit.version>4.13.1</junit.version>
 		<junit.jupiter.version>5.7.0</junit.jupiter.version>
 		<junit.platform.version>1.7.0</junit.platform.version>
+
+		<jacoco-maven-plugin.version>0.8.6</jacoco-maven-plugin.version>
+
+		<license-maven-plugin.version>2.0.0</license-maven-plugin.version>
+
+		<maven-antrun-plugin.version>3.0.0</maven-antrun-plugin.version>
+		<maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
+		<maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
+		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+		<maven-dependency-plugin.version>3.1.2</maven-dependency-plugin.version>
+		<maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
+		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+		<maven-install-plugin.version>3.0.0-M1</maven-install-plugin.version>
+		<maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
+		<maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
+		<maven-jdeps-plugin.version>3.1.2</maven-jdeps-plugin.version>
+		<maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
+		<maven-failsafe-plugin.version>3.0.0-M4</maven-failsafe-plugin.version>
+		<maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
+		<maven-enforcer-plugin.extra-enforcer-rules.version>1.3</maven-enforcer-plugin.extra-enforcer-rules.version>
+		<maven-plugin-plugin.version>3.6.0</maven-plugin-plugin.version>
+		<maven-release-plugin.version>3.0.0-M1</maven-release-plugin.version>
+		<maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
+		<maven-shade-plugin.version>3.2.4</maven-shade-plugin.version>
+		<maven-site-plugin.version>3.9.1</maven-site-plugin.version>
+		<maven-source-plugin.version>3.2.1</maven-source-plugin.version>
+		<maven-toolchains-plugin.version>3.0.0</maven-toolchains-plugin.version>
+		<maven-war-plugin.version>3.3.1</maven-war-plugin.version>
+
+		<moditect-maven-plugin.version>1.0.0.RC1</moditect-maven-plugin.version>
+
+		<versions-maven-plugin.version>2.8.1</versions-maven-plugin.version>
+
 	</properties>
 
 	<dependencyManagement>
@@ -95,7 +135,7 @@
 			<dependency>
 				<groupId>org.apiguardian</groupId>
 				<artifactId>apiguardian-api</artifactId>
-				<version>1.1.0</version>
+				<version>${apiguardian.version}</version>
 				<scope>test</scope>
 			</dependency>
 		</dependencies>
@@ -107,7 +147,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.8.1</version>
+					<version>${maven-compiler-plugin.version}</version>
 					<configuration>
 						<source>${jdkLevel}</source>
 						<target>${jdkLevel}</target>
@@ -116,7 +156,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-toolchains-plugin</artifactId>
-					<version>3.0.0</version>
+					<version>${maven-toolchains-plugin.version}</version>
 					<executions>
 						<execution>
 							<goals>
@@ -135,48 +175,48 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-dependency-plugin</artifactId>
-					<version>3.1.1</version>
+					<version>${maven-dependency-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-javadoc-plugin</artifactId>
-					<version>3.1.1</version>
+					<version>${maven-javadoc-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-deploy-plugin</artifactId>
-					<version>3.0.0-M1</version>
+					<version>${maven-deploy-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-resources-plugin</artifactId>
-					<version>3.1.0</version>
+					<version>${maven-resources-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-plugin-plugin</artifactId>
-					<version>3.6.0</version>
+					<version>${maven-plugin-plugin.version}</version>
 				</plugin>
 
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-install-plugin</artifactId>
-					<version>3.0.0-M1</version>
+					<version>${maven-install-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-clean-plugin</artifactId>
-					<version>3.1.0</version>
+					<version>${maven-clean-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-gpg-plugin</artifactId>
-					<version>1.6</version>
+					<version>${maven-gpg-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-jar-plugin</artifactId>
-					<version>3.2.0</version>
+					<version>${maven-jar-plugin.version}</version>
 					<executions>
 						<execution>
 							<goals>
@@ -188,12 +228,12 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-source-plugin</artifactId>
-					<version>3.2.0</version>
+					<version>${maven-source-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.jacoco</groupId>
 					<artifactId>jacoco-maven-plugin</artifactId>
-					<version>0.8.6</version>
+					<version>${jacoco-maven-plugin.version}</version>
 					<executions>
 						<execution>
 							<id>prepare-agent</id>
@@ -206,7 +246,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
-					<version>3.0.0-M4</version>
+					<version>${maven-surefire-plugin.version}</version>
 					<configuration>
 						<runOrder>random</runOrder>
 						<trimStackTrace>false</trimStackTrace>
@@ -223,7 +263,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-failsafe-plugin</artifactId>
-					<version>3.0.0-M4</version>
+					<version>${maven-failsafe-plugin.version}</version>
 					<configuration>
 						<runOrder>random</runOrder>
 						<trimStackTrace>false</trimStackTrace>
@@ -255,59 +295,9 @@
 					</dependencies>
 				</plugin>
 				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-enforcer-plugin</artifactId>
-					<version>3.0.0-M3</version>
-					<executions>
-						<execution>
-							<id>enforce-maven-versioning</id>
-							<goals>
-								<goal>enforce</goal>
-							</goals>
-							<configuration>
-								<rules>
-									<requireMavenVersion>
-										<version>[${minimumMavenVersion},)</version>
-									</requireMavenVersion>
-									<requireJavaVersion>
-										<version>[${jdkLevel},)</version>
-									</requireJavaVersion>
-								</rules>
-							</configuration>
-						</execution>
-						<execution>
-							<id>enforce-bytecode-version</id>
-							<goals>
-								<goal>enforce</goal>
-							</goals>
-							<configuration>
-								<rules>
-									<enforceBytecodeVersion>
-										<maxJdkVersion>${jdkLevel}</maxJdkVersion>
-										<ignoreClasses>
-											<!-- ignore multirelease JAR classes -->
-											<ignoreClass>META-INF/versions/**/*</ignoreClass>
-											<!-- ignore JAVA 9 module-info files, for eg org.ow2.asm:asm:6.0+ -->
-											<ignoreClass>module-info</ignoreClass>
-										</ignoreClasses>
-									</enforceBytecodeVersion>
-								</rules>
-								<fail>true</fail>
-							</configuration>
-						</execution>
-					</executions>
-					<dependencies>
-						<dependency>
-							<groupId>org.codehaus.mojo</groupId>
-							<artifactId>extra-enforcer-rules</artifactId>
-							<version>1.3</version>
-						</dependency>
-					</dependencies>
-				</plugin>
-				<plugin>
 					<groupId>org.moditect</groupId>
 					<artifactId>moditect-maven-plugin</artifactId>
-					<version>1.0.0.RC1</version>
+					<version>${moditect-maven-plugin.version}</version>
 					<executions>
 						<execution>
 							<id>add-module-infos</id>
@@ -327,57 +317,57 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-jdeps-plugin</artifactId>
-					<version>3.1.2</version>
+					<version>${maven-jdeps-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-shade-plugin</artifactId>
-					<version>3.2.1</version>
+					<version>${maven-shade-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-antrun-plugin</artifactId>
-					<version>1.8</version>
+					<version>${maven-antrun-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-assembly-plugin</artifactId>
-					<version>3.2.0</version>
+					<version>${maven-assembly-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-war-plugin</artifactId>
-					<version>3.2.3</version>
+					<version>${maven-war-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>appassembler-maven-plugin</artifactId>
-					<version>2.1.0</version>
+					<version>${appassembler-maven-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.eluder.coveralls</groupId>
 					<artifactId>coveralls-maven-plugin</artifactId>
-					<version>4.3.0</version>
+					<version>${coveralls-maven-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>versions-maven-plugin</artifactId>
-					<version>2.7</version>
+					<version>${versions-maven-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-release-plugin</artifactId>
-					<version>2.5.3</version>
+					<version>${maven-release-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-site-plugin</artifactId>
-					<version>3.8.2</version>
+					<version>${maven-site-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>license-maven-plugin</artifactId>
-					<version>2.0.0</version>
+					<version>${license-maven-plugin.version}</version>
 					<executions>
 						<execution>
 							<id>download-licenses</id>
@@ -425,7 +415,7 @@
 											maven-toolchains-plugin
 										</artifactId>
 										<versionRange>
-											[3.0.0,)
+											[0,)
 										</versionRange>
 										<goals>
 											<goal>toolchain</goal>
@@ -446,8 +436,6 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-toolchains-plugin</artifactId>
 			</plugin>
-			<!-- plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-enforcer-plugin</artifactId> 
-				</plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jdeps-plugin</artifactId>
@@ -510,9 +498,59 @@
 				<pluginManagement>
 					<plugins>
 						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-enforcer-plugin</artifactId>
+							<version>${maven-enforcer-plugin.version}</version>
+							<executions>
+								<execution>
+									<id>enforce-maven-versioning</id>
+									<goals>
+										<goal>enforce</goal>
+									</goals>
+									<configuration>
+										<rules>
+											<requireMavenVersion>
+												<version>[${minimumMavenVersion},)</version>
+											</requireMavenVersion>
+											<requireJavaVersion>
+												<version>[${jdkLevel},)</version>
+											</requireJavaVersion>
+										</rules>
+									</configuration>
+								</execution>
+								<execution>
+									<id>enforce-bytecode-version</id>
+									<goals>
+										<goal>enforce</goal>
+									</goals>
+									<configuration>
+										<rules>
+											<enforceBytecodeVersion>
+												<maxJdkVersion>${jdkLevel}</maxJdkVersion>
+												<ignoreClasses>
+													<!-- ignore multirelease JAR classes -->
+													<ignoreClass>META-INF/versions/**/*</ignoreClass>
+													<!-- ignore JAVA 9 module-info files, for eg org.ow2.asm:asm:6.0+ -->
+													<ignoreClass>module-info</ignoreClass>
+												</ignoreClasses>
+											</enforceBytecodeVersion>
+										</rules>
+										<fail>true</fail>
+									</configuration>
+								</execution>
+							</executions>
+							<dependencies>
+								<dependency>
+									<groupId>org.codehaus.mojo</groupId>
+									<artifactId>extra-enforcer-rules</artifactId>
+									<version>${maven-enforcer-plugin.extra-enforcer-rules.version}</version>
+								</dependency>
+							</dependencies>
+						</plugin>
+						<plugin>
 							<groupId>org.codehaus.mojo</groupId>
 							<artifactId>animal-sniffer-maven-plugin</artifactId>
-							<version>1.18</version>
+							<version>${animal-sniffer-maven-plugin.version}</version>
 							<executions>
 								<execution>
 									<id>enforce-jdk-api</id>
@@ -536,7 +574,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-compiler-plugin</artifactId>
-						<version>3.1</version>
+						<version>${maven-compiler-plugin.version}</version>
 						<configuration>
 							<source>1.8</source>
 							<target>1.8</target>
@@ -556,7 +594,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-enforcer-plugin</artifactId>
-						<version>3.0.0-M3</version>
+						<version>${maven-enforcer-plugin.version}</version>
 						<executions>
 							<execution>
 								<id>enforce-no-snapshots</id>
@@ -603,7 +641,7 @@
 							<dependency>
 								<groupId>org.codehaus.mojo</groupId>
 								<artifactId>extra-enforcer-rules</artifactId>
-								<version>1.2</version>
+								<version>${maven-enforcer-plugin.extra-enforcer-rules.version}</version>
 							</dependency>
 						</dependencies>
 					</plugin>

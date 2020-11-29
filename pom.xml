@@ -167,7 +167,7 @@
 					<configuration>
 						<toolchains>
 							<jdk>
-								<version>${jdkLevel}</version>
+								<version>[${jdkLevel},)</version>
 							</jdk>
 						</toolchains>
 					</configuration>

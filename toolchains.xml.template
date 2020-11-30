@@ -4,11 +4,11 @@
       <toolchain>
         <type>jdk</type>
         <provides>
-          <version>JDK_VERSION</version>
-          <vendor>JDK_VENDOR</vendor>
+          <version>${env.JDK_VERSION}</version>
+          <vendor>${env.JDK_VENDOR}</vendor>
         </provides>
         <configuration>
-          <jdkHome>JAVA_HOME</jdkHome>
+          <jdkHome>${env.JAVA_HOME}</jdkHome>
         </configuration>
       </toolchain>
 </toolchains>
